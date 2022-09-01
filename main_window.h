@@ -19,13 +19,14 @@ public:
     ~main_window();
 
 private slots:
-    void onWaveformReceived(QVariant);
+    void onWaveformReceived(QVariant& value);
 
 private:
     Ui::main_window *ui;
 
     QString group;
     QString prefix;
+    uchar* buffer;
 
     QEpicsPV* waveform;
 };
