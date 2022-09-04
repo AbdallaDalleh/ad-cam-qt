@@ -21,6 +21,8 @@ public:
 private slots:
     void onWaveformReceived(QVariant& value);
 
+    void on_btnExpert_clicked();
+
 private:
     Ui::main_window *ui;
 

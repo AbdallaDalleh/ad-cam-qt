@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1211</width>
-    <height>741</height>
+    <width>1371</width>
+    <height>821</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,10 +17,10 @@
    <widget class="QLabel" name="lblImage">
     <property name="geometry">
      <rect>
-      <x>350</x>
+      <x>360</x>
       <y>10</y>
-      <width>850</width>
-      <height>720</height>
+      <width>1000</width>
+      <height>800</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -33,1163 +33,1306 @@
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QLabel" name="label_2">
+   <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>20</y>
-      <width>130</width>
-      <height>20</height>
+      <y>0</y>
+      <width>340</width>
+      <height>100</height>
      </rect>
     </property>
-    <property name="text">
-     <string>Enable Acquisition</string>
+    <property name="styleSheet">
+     <string notr="true">QGroupBox {
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-top: 0.5em;
+}
+
+QGroupBox::title {
+    subcontrol-origin: margin;
+    left: 10px;
+    padding: 0 3px 0 3px;
+}</string>
     </property>
+    <property name="title">
+     <string>Acquisition</string>
+    </property>
+    <widget class="QELabel" name="qelabel_28">
+     <property name="geometry">
+      <rect>
+       <x>250</x>
+       <y>20</y>
+       <width>80</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="variable" stdset="0">
+      <string>$(group):Acquire</string>
+     </property>
+    </widget>
+    <widget class="QEPushButton" name="btnStart">
+     <property name="geometry">
+      <rect>
+       <x>140</x>
+       <y>20</y>
+       <width>60</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>START</string>
+     </property>
+     <property name="variable" stdset="0">
+      <string>$(group):Acquire</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>20</y>
+       <width>130</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Enable Acquisition</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_27">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>50</y>
+       <width>130</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Acquisition Status</string>
+     </property>
+    </widget>
+    <widget class="QELabel" name="qelabel_27">
+     <property name="geometry">
+      <rect>
+       <x>140</x>
+       <y>70</y>
+       <width>190</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="variable" stdset="0">
+      <string>$(group):DetectorState_RBV</string>
+     </property>
+    </widget>
+    <widget class="QELabel" name="qelabel_26">
+     <property name="geometry">
+      <rect>
+       <x>140</x>
+       <y>50</y>
+       <width>190</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="variable" stdset="0">
+      <string>$(group):AcquireBusy</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_28">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>70</y>
+       <width>130</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Camera Status</string>
+     </property>
+    </widget>
+    <widget class="QEPushButton" name="btnStop">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>20</y>
+       <width>50</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>STOP</string>
+     </property>
+     <property name="variable" stdset="0">
+      <string>$(group):Acquire</string>
+     </property>
+     <property name="clickText">
+      <string>0</string>
+     </property>
+    </widget>
    </widget>
-   <widget class="QEPushButton" name="btnStart">
-    <property name="geometry">
-     <rect>
-      <x>140</x>
-      <y>20</y>
-      <width>60</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>START</string>
-    </property>
-    <property name="variable" stdset="0">
-     <string>$(group):Acquire</string>
-    </property>
-   </widget>
-   <widget class="QEPushButton" name="btnStop">
-    <property name="geometry">
-     <rect>
-      <x>200</x>
-      <y>20</y>
-      <width>50</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>STOP</string>
-    </property>
-    <property name="variable" stdset="0">
-     <string>$(group):Acquire</string>
-    </property>
-    <property name="clickText">
-     <string>0</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_3">
+   <widget class="QGroupBox" name="groupBox_2">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>100</y>
-      <width>130</width>
-      <height>20</height>
+      <y>510</y>
+      <width>340</width>
+      <height>300</height>
      </rect>
     </property>
-    <property name="text">
-     <string>Trigger Mode</string>
+    <property name="styleSheet">
+     <string notr="true">QGroupBox {
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-top: 0.5em;
+}
+
+QGroupBox::title {
+    subcontrol-origin: margin;
+    left: 10px;
+    padding: 0 3px 0 3px;
+}</string>
     </property>
+    <property name="title">
+     <string>Camera Settings</string>
+    </property>
+    <widget class="QEComboBox" name="cbTriggerMode_3">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>270</y>
+       <width>100</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="variable" stdset="0">
+      <string>$(group):PixelFormat</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_24">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>230</y>
+       <width>130</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Gain Control</string>
+     </property>
+    </widget>
+    <widget class="QENumericEdit" name="qenumericedit_2">
+     <property name="geometry">
+      <rect>
+       <x>240</x>
+       <y>90</y>
+       <width>90</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="displayAlarmStateOption" stdset="0">
+      <enum>QEAbstractWidget::Never</enum>
+     </property>
+     <property name="variable" stdset="0">
+      <string>$(group):MinY</string>
+     </property>
+     <property name="leadingZeros">
+      <number>4</number>
+     </property>
+     <property name="precision">
+      <number>0</number>
+     </property>
+     <property name="minimum">
+      <double>0.000000000000000</double>
+     </property>
+     <property name="maximum">
+      <double>9999.000000000000000</double>
+     </property>
+    </widget>
+    <widget class="QENumericEdit" name="qenumericedit_5">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>230</y>
+       <width>100</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="displayAlarmStateOption" stdset="0">
+      <enum>QEAbstractWidget::Never</enum>
+     </property>
+     <property name="variable" stdset="0">
+      <string>$(group):Gain</string>
+     </property>
+     <property name="leadingZeros">
+      <number>4</number>
+     </property>
+     <property name="precision">
+      <number>2</number>
+     </property>
+     <property name="minimum">
+      <double>0.000000000000000</double>
+     </property>
+    </widget>
+    <widget class="QELabel" name="lblSizeX">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>170</y>
+       <width>100</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="variable" stdset="0">
+      <string>$(group):ArraySizeX_RBV</string>
+     </property>
+    </widget>
+    <widget class="QELabel" name="qelabel_3">
+     <property name="geometry">
+      <rect>
+       <x>240</x>
+       <y>70</y>
+       <width>90</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="variable" stdset="0">
+      <string>$(group):MinY_RBV</string>
+     </property>
+    </widget>
+    <widget class="QELabel" name="qelabel_4">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>70</y>
+       <width>100</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="variable" stdset="0">
+      <string>$(group):MinX_RBV</string>
+     </property>
+    </widget>
+    <widget class="QENumericEdit" name="qenumericedit_4">
+     <property name="geometry">
+      <rect>
+       <x>240</x>
+       <y>140</y>
+       <width>90</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="displayAlarmStateOption" stdset="0">
+      <enum>QEAbstractWidget::Never</enum>
+     </property>
+     <property name="variable" stdset="0">
+      <string>$(group):SizeY</string>
+     </property>
+     <property name="leadingZeros">
+      <number>4</number>
+     </property>
+     <property name="precision">
+      <number>0</number>
+     </property>
+     <property name="minimum">
+      <double>0.000000000000000</double>
+     </property>
+     <property name="maximum">
+      <double>9999.000000000000000</double>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_20">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>70</y>
+       <width>130</width>
+       <height>40</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Offset Start</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_25">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>250</y>
+       <width>130</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Automatic Gain</string>
+     </property>
+    </widget>
+    <widget class="QELabel" name="qelabel_10">
+     <property name="geometry">
+      <rect>
+       <x>240</x>
+       <y>230</y>
+       <width>90</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="variable" stdset="0">
+      <string>$(group):Gain_RBV</string>
+     </property>
+    </widget>
+    <widget class="QENumericEdit" name="qenumericedit_3">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>140</y>
+       <width>100</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="displayAlarmStateOption" stdset="0">
+      <enum>QEAbstractWidget::Never</enum>
+     </property>
+     <property name="variable" stdset="0">
+      <string>$(group):SizeX</string>
+     </property>
+     <property name="leadingZeros">
+      <number>4</number>
+     </property>
+     <property name="precision">
+      <number>0</number>
+     </property>
+     <property name="minimum">
+      <double>0.000000000000000</double>
+     </property>
+     <property name="maximum">
+      <double>9999.000000000000000</double>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_23">
+     <property name="geometry">
+      <rect>
+       <x>240</x>
+       <y>190</y>
+       <width>90</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Bytes</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_21">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>120</y>
+       <width>130</width>
+       <height>40</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Offset Size</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_19">
+     <property name="geometry">
+      <rect>
+       <x>240</x>
+       <y>20</y>
+       <width>90</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Y</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_17">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>40</y>
+       <width>130</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Sensor Size</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_18">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>20</y>
+       <width>100</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>X</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QELabel" name="qelabel_9">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>190</y>
+       <width>100</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="variable" stdset="0">
+      <string>$(group):ArraySize_RBV</string>
+     </property>
+    </widget>
+    <widget class="QENumericEdit" name="qenumericedit">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>90</y>
+       <width>100</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="displayAlarmStateOption" stdset="0">
+      <enum>QEAbstractWidget::Never</enum>
+     </property>
+     <property name="variable" stdset="0">
+      <string>$(group):MinX</string>
+     </property>
+     <property name="leadingZeros">
+      <number>4</number>
+     </property>
+     <property name="precision">
+      <number>0</number>
+     </property>
+     <property name="minimum">
+      <double>0.000000000000000</double>
+     </property>
+     <property name="maximum">
+      <double>9999.000000000000000</double>
+     </property>
+    </widget>
+    <widget class="QELabel" name="qelabel_2">
+     <property name="geometry">
+      <rect>
+       <x>240</x>
+       <y>40</y>
+       <width>90</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="variable" stdset="0">
+      <string>$(group):MaxSizeY_RBV</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_22">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>170</y>
+       <width>130</width>
+       <height>40</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Image Size</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_26">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>270</y>
+       <width>130</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Pixel Format</string>
+     </property>
+    </widget>
+    <widget class="QELabel" name="lblSizeY">
+     <property name="geometry">
+      <rect>
+       <x>240</x>
+       <y>170</y>
+       <width>90</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="variable" stdset="0">
+      <string>$(group):ArraySizeY_RBV</string>
+     </property>
+    </widget>
+    <widget class="QELabel" name="qelabel">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>40</y>
+       <width>100</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="variable" stdset="0">
+      <string>$(group):MaxSizeX_RBV</string>
+     </property>
+    </widget>
+    <widget class="QELabel" name="qelabel_6">
+     <property name="geometry">
+      <rect>
+       <x>240</x>
+       <y>120</y>
+       <width>90</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="variable" stdset="0">
+      <string>$(group):SizeY_RBV</string>
+     </property>
+    </widget>
+    <widget class="QELabel" name="qelabel_11">
+     <property name="geometry">
+      <rect>
+       <x>240</x>
+       <y>250</y>
+       <width>90</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="variable" stdset="0">
+      <string>$(group):GainAuto_RBV</string>
+     </property>
+    </widget>
+    <widget class="QELabel" name="qelabel_5">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>120</y>
+       <width>100</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="variable" stdset="0">
+      <string>$(group):SizeX_RBV</string>
+     </property>
+    </widget>
+    <widget class="QELabel" name="qelabel_12">
+     <property name="geometry">
+      <rect>
+       <x>240</x>
+       <y>270</y>
+       <width>90</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="variable" stdset="0">
+      <string>$(group):PixelFormat_RBV</string>
+     </property>
+    </widget>
+    <widget class="QEComboBox" name="cbTriggerMode_2">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>250</y>
+       <width>100</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="variable" stdset="0">
+      <string>$(group):GainAuto</string>
+     </property>
+    </widget>
    </widget>
-   <widget class="QLabel" name="label_4">
+   <widget class="QGroupBox" name="groupBox_3">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>120</y>
-      <width>130</width>
-      <height>20</height>
+      <y>110</y>
+      <width>340</width>
+      <height>90</height>
      </rect>
     </property>
-    <property name="text">
-     <string>Trigger Source</string>
+    <property name="styleSheet">
+     <string notr="true">QGroupBox {
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-top: 0.5em;
+}
+
+QGroupBox::title {
+    subcontrol-origin: margin;
+    left: 10px;
+    padding: 0 3px 0 3px;
+}</string>
     </property>
-   </widget>
-   <widget class="QLabel" name="label_5">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>140</y>
-      <width>130</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Software Trigger</string>
-    </property>
-   </widget>
-   <widget class="QEComboBox" name="cbTriggerMode">
-    <property name="geometry">
-     <rect>
-      <x>140</x>
-      <y>100</y>
-      <width>100</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="variable" stdset="0">
-     <string>$(group):TriggerMode</string>
-    </property>
-   </widget>
-   <widget class="QEComboBox" name="cbTriggerSource">
-    <property name="geometry">
-     <rect>
-      <x>140</x>
-      <y>120</y>
-      <width>100</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="variable" stdset="0">
-     <string>$(group):TriggerSource</string>
-    </property>
-   </widget>
-   <widget class="QEPushButton" name="btnTrigger">
-    <property name="geometry">
-     <rect>
-      <x>140</x>
-      <y>140</y>
-      <width>100</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
+    <property name="title">
      <string>Trigger</string>
     </property>
-    <property name="variable" stdset="0">
-     <string>$(group):TriggerSoftware</string>
-    </property>
+    <widget class="QELabel" name="qelabel_14">
+     <property name="geometry">
+      <rect>
+       <x>240</x>
+       <y>40</y>
+       <width>90</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="variable" stdset="0">
+      <string>$(group):TriggerSource_RBV</string>
+     </property>
+    </widget>
+    <widget class="QEComboBox" name="cbTriggerSource">
+     <property name="geometry">
+      <rect>
+       <x>140</x>
+       <y>40</y>
+       <width>100</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="variable" stdset="0">
+      <string>$(group):TriggerSource</string>
+     </property>
+    </widget>
+    <widget class="QELabel" name="qelabel_13">
+     <property name="geometry">
+      <rect>
+       <x>240</x>
+       <y>20</y>
+       <width>90</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="variable" stdset="0">
+      <string>$(group):TriggerMode_RBV</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_5">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>60</y>
+       <width>130</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Software Trigger</string>
+     </property>
+    </widget>
+    <widget class="QEPushButton" name="btnTrigger">
+     <property name="geometry">
+      <rect>
+       <x>140</x>
+       <y>60</y>
+       <width>100</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Trigger</string>
+     </property>
+     <property name="variable" stdset="0">
+      <string>$(group):TriggerSoftware</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_4">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>40</y>
+       <width>130</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Trigger Source</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>20</y>
+       <width>130</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Trigger Mode</string>
+     </property>
+    </widget>
+    <widget class="QEComboBox" name="cbTriggerMode">
+     <property name="geometry">
+      <rect>
+       <x>140</x>
+       <y>20</y>
+       <width>100</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="variable" stdset="0">
+      <string>$(group):TriggerMode</string>
+     </property>
+    </widget>
    </widget>
-   <widget class="QLabel" name="label_6">
+   <widget class="QGroupBox" name="groupBox_4">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>180</y>
-      <width>130</width>
-      <height>20</height>
+      <y>210</y>
+      <width>340</width>
+      <height>170</height>
      </rect>
     </property>
-    <property name="text">
-     <string>Exposure Time</string>
+    <property name="styleSheet">
+     <string notr="true">QGroupBox {
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-top: 0.5em;
+}
+
+QGroupBox::title {
+    subcontrol-origin: margin;
+    left: 10px;
+    padding: 0 3px 0 3px;
+}</string>
     </property>
+    <property name="title">
+     <string>Collection</string>
+    </property>
+    <widget class="QELabel" name="qelabel_16">
+     <property name="geometry">
+      <rect>
+       <x>240</x>
+       <y>80</y>
+       <width>90</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="variable" stdset="0">
+      <string>$(group):ExposureAuto_RBV</string>
+     </property>
+    </widget>
+    <widget class="QELabel" name="qelabel_21">
+     <property name="geometry">
+      <rect>
+       <x>140</x>
+       <y>140</y>
+       <width>100</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="variable" stdset="0">
+      <string>$(group):ArrayRate_RBV</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_9">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>100</y>
+       <width>130</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Frame Rate Enable</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_12">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>140</y>
+       <width>130</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Image Rate</string>
+     </property>
+    </widget>
+    <widget class="QEComboBox" name="cbTriggerSource_4">
+     <property name="geometry">
+      <rect>
+       <x>140</x>
+       <y>120</y>
+       <width>100</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="variable" stdset="0">
+      <string>$(group):ImageMode</string>
+     </property>
+    </widget>
+    <widget class="QELabel" name="qelabel_19">
+     <property name="geometry">
+      <rect>
+       <x>240</x>
+       <y>100</y>
+       <width>90</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="variable" stdset="0">
+      <string>$(group):FrameRateEnable_RBV</string>
+     </property>
+    </widget>
+    <widget class="QENumericEdit" name="qenumericedit_6">
+     <property name="geometry">
+      <rect>
+       <x>140</x>
+       <y>20</y>
+       <width>100</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="displayAlarmStateOption" stdset="0">
+      <enum>QEAbstractWidget::Never</enum>
+     </property>
+     <property name="variable" stdset="0">
+      <string>$(group):AcquireTime</string>
+     </property>
+     <property name="leadingZeros">
+      <number>4</number>
+     </property>
+     <property name="precision">
+      <number>0</number>
+     </property>
+     <property name="minimum">
+      <double>0.000000000000000</double>
+     </property>
+    </widget>
+    <widget class="QEComboBox" name="cbTriggerSource_2">
+     <property name="geometry">
+      <rect>
+       <x>140</x>
+       <y>80</y>
+       <width>100</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="variable" stdset="0">
+      <string>$(group):ExposureAuto</string>
+     </property>
+    </widget>
+    <widget class="QELabel" name="qelabel_15">
+     <property name="geometry">
+      <rect>
+       <x>240</x>
+       <y>20</y>
+       <width>90</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="variable" stdset="0">
+      <string>$(group):AcquireTime_RBV</string>
+     </property>
+    </widget>
+    <widget class="QEComboBox" name="cbTriggerSource_3">
+     <property name="geometry">
+      <rect>
+       <x>140</x>
+       <y>100</y>
+       <width>100</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="variable" stdset="0">
+      <string>$(group):FrameRateEnable</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_6">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>20</y>
+       <width>130</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Exposure Time</string>
+     </property>
+    </widget>
+    <widget class="QELabel" name="qelabel_20">
+     <property name="geometry">
+      <rect>
+       <x>240</x>
+       <y>120</y>
+       <width>90</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="variable" stdset="0">
+      <string>$(group):ImageMode_RBV</string>
+     </property>
+    </widget>
+    <widget class="QELabel" name="qelabel_18">
+     <property name="geometry">
+      <rect>
+       <x>240</x>
+       <y>60</y>
+       <width>90</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="variable" stdset="0">
+      <string>$(group):FrameRate_RBV</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_8">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>60</y>
+       <width>130</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Frame Rate</string>
+     </property>
+    </widget>
+    <widget class="QELabel" name="qelabel_17">
+     <property name="geometry">
+      <rect>
+       <x>240</x>
+       <y>40</y>
+       <width>90</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="variable" stdset="0">
+      <string>$(group):AcquirePeriod_RBV</string>
+     </property>
+    </widget>
+    <widget class="QENumericEdit" name="qenumericedit_8">
+     <property name="geometry">
+      <rect>
+       <x>140</x>
+       <y>60</y>
+       <width>100</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="displayAlarmStateOption" stdset="0">
+      <enum>QEAbstractWidget::Never</enum>
+     </property>
+     <property name="variable" stdset="0">
+      <string>$(group):FrameRate</string>
+     </property>
+     <property name="leadingZeros">
+      <number>4</number>
+     </property>
+     <property name="precision">
+      <number>0</number>
+     </property>
+     <property name="minimum">
+      <double>0.000000000000000</double>
+     </property>
+    </widget>
+    <widget class="QENumericEdit" name="qenumericedit_7">
+     <property name="geometry">
+      <rect>
+       <x>140</x>
+       <y>40</y>
+       <width>100</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="displayAlarmStateOption" stdset="0">
+      <enum>QEAbstractWidget::Never</enum>
+     </property>
+     <property name="variable" stdset="0">
+      <string>$(group):AcquirePeriod</string>
+     </property>
+     <property name="leadingZeros">
+      <number>4</number>
+     </property>
+     <property name="precision">
+      <number>0</number>
+     </property>
+     <property name="minimum">
+      <double>0.000000000000000</double>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_11">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>120</y>
+       <width>130</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Image Mode</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_7">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>80</y>
+       <width>130</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Auto Exposure</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_10">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>40</y>
+       <width>130</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Acquire Period</string>
+     </property>
+    </widget>
    </widget>
-   <widget class="QLabel" name="label_8">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>220</y>
-      <width>130</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Frame Rate</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_9">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>260</y>
-      <width>130</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Frame Rate Enable</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_10">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>200</y>
-      <width>130</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Acquire Period</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_11">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>280</y>
-      <width>130</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Image Mode</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_12">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>300</y>
-      <width>130</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Image Rate</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_13">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>330</y>
-      <width>130</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Frames Completed</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_14">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>350</y>
-      <width>130</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Frames Failures</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_15">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>370</y>
-      <width>130</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Frames Underruns</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_16">
+   <widget class="QGroupBox" name="groupBox_5">
     <property name="geometry">
      <rect>
       <x>10</x>
       <y>390</y>
-      <width>130</width>
-      <height>20</height>
+      <width>220</width>
+      <height>110</height>
      </rect>
     </property>
-    <property name="text">
-     <string>Temperature</string>
+    <property name="styleSheet">
+     <string notr="true">QGroupBox {
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-top: 0.5em;
+}
+
+QGroupBox::title {
+    subcontrol-origin: margin;
+    left: 10px;
+    padding: 0 3px 0 3px;
+}</string>
     </property>
+    <property name="title">
+     <string>Frames Statistics</string>
+    </property>
+    <widget class="QELabel" name="qelabel_25">
+     <property name="geometry">
+      <rect>
+       <x>140</x>
+       <y>80</y>
+       <width>70</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="variable" stdset="0">
+      <string>$(group):TemperatureActual</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_15">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>60</y>
+       <width>130</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Frames Underruns</string>
+     </property>
+    </widget>
+    <widget class="QELabel" name="qelabel_24">
+     <property name="geometry">
+      <rect>
+       <x>140</x>
+       <y>60</y>
+       <width>70</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="variable" stdset="0">
+      <string>$(group):ARFrameUnderruns</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_16">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>80</y>
+       <width>130</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Temperature</string>
+     </property>
+    </widget>
+    <widget class="QELabel" name="qelabel_22">
+     <property name="geometry">
+      <rect>
+       <x>140</x>
+       <y>20</y>
+       <width>70</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="variable" stdset="0">
+      <string>$(group):ARFramesCompleted</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_13">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>20</y>
+       <width>130</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Frames Completed</string>
+     </property>
+    </widget>
+    <widget class="QELabel" name="qelabel_23">
+     <property name="geometry">
+      <rect>
+       <x>140</x>
+       <y>40</y>
+       <width>70</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="variable" stdset="0">
+      <string>$(group):ARFrameFailures</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_14">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>40</y>
+       <width>130</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Frames Failures</string>
+     </property>
+    </widget>
    </widget>
-   <widget class="QLabel" name="label_17">
+   <widget class="QPushButton" name="btnExpert">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>440</y>
-      <width>130</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Sensor Size</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_18">
-    <property name="geometry">
-     <rect>
-      <x>150</x>
+      <x>240</x>
       <y>420</y>
-      <width>80</width>
-      <height>20</height>
+      <width>110</width>
+      <height>50</height>
      </rect>
     </property>
     <property name="text">
-     <string>X</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_19">
-    <property name="geometry">
-     <rect>
-      <x>240</x>
-      <y>420</y>
-      <width>70</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Y</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-   </widget>
-   <widget class="QELabel" name="qelabel">
-    <property name="geometry">
-     <rect>
-      <x>150</x>
-      <y>440</y>
-      <width>80</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="variable" stdset="0">
-     <string>$(group):MaxSizeX_RBV</string>
-    </property>
-   </widget>
-   <widget class="QELabel" name="qelabel_2">
-    <property name="geometry">
-     <rect>
-      <x>240</x>
-      <y>440</y>
-      <width>70</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="variable" stdset="0">
-     <string>$(group):MaxSizeY_RBV</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_20">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>470</y>
-      <width>130</width>
-      <height>40</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Offset Start</string>
-    </property>
-   </widget>
-   <widget class="QELabel" name="qelabel_3">
-    <property name="geometry">
-     <rect>
-      <x>240</x>
-      <y>470</y>
-      <width>70</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="variable" stdset="0">
-     <string>$(group):MinY_RBV</string>
-    </property>
-   </widget>
-   <widget class="QELabel" name="qelabel_4">
-    <property name="geometry">
-     <rect>
-      <x>150</x>
-      <y>470</y>
-      <width>80</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="variable" stdset="0">
-     <string>$(group):MinX_RBV</string>
-    </property>
-   </widget>
-   <widget class="QENumericEdit" name="qenumericedit">
-    <property name="geometry">
-     <rect>
-      <x>150</x>
-      <y>490</y>
-      <width>80</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="displayAlarmStateOption" stdset="0">
-     <enum>QEAbstractWidget::Never</enum>
-    </property>
-    <property name="variable" stdset="0">
-     <string>$(group):MinX</string>
-    </property>
-    <property name="leadingZeros">
-     <number>4</number>
-    </property>
-    <property name="precision">
-     <number>0</number>
-    </property>
-    <property name="minimum">
-     <double>0.000000000000000</double>
-    </property>
-    <property name="maximum">
-     <double>9999.000000000000000</double>
-    </property>
-   </widget>
-   <widget class="QENumericEdit" name="qenumericedit_2">
-    <property name="geometry">
-     <rect>
-      <x>240</x>
-      <y>490</y>
-      <width>70</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="displayAlarmStateOption" stdset="0">
-     <enum>QEAbstractWidget::Never</enum>
-    </property>
-    <property name="variable" stdset="0">
-     <string>$(group):MinY</string>
-    </property>
-    <property name="leadingZeros">
-     <number>4</number>
-    </property>
-    <property name="precision">
-     <number>0</number>
-    </property>
-    <property name="minimum">
-     <double>0.000000000000000</double>
-    </property>
-    <property name="maximum">
-     <double>9999.000000000000000</double>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_21">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>520</y>
-      <width>130</width>
-      <height>40</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Offset Size</string>
-    </property>
-   </widget>
-   <widget class="QELabel" name="qelabel_5">
-    <property name="geometry">
-     <rect>
-      <x>150</x>
-      <y>520</y>
-      <width>80</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="variable" stdset="0">
-     <string>$(group):SizeX_RBV</string>
-    </property>
-   </widget>
-   <widget class="QENumericEdit" name="qenumericedit_3">
-    <property name="geometry">
-     <rect>
-      <x>150</x>
-      <y>540</y>
-      <width>80</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="displayAlarmStateOption" stdset="0">
-     <enum>QEAbstractWidget::Never</enum>
-    </property>
-    <property name="variable" stdset="0">
-     <string>$(group):SizeX</string>
-    </property>
-    <property name="leadingZeros">
-     <number>4</number>
-    </property>
-    <property name="precision">
-     <number>0</number>
-    </property>
-    <property name="minimum">
-     <double>0.000000000000000</double>
-    </property>
-    <property name="maximum">
-     <double>9999.000000000000000</double>
-    </property>
-   </widget>
-   <widget class="QELabel" name="qelabel_6">
-    <property name="geometry">
-     <rect>
-      <x>240</x>
-      <y>520</y>
-      <width>70</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="variable" stdset="0">
-     <string>$(group):SizeY_RBV</string>
-    </property>
-   </widget>
-   <widget class="QENumericEdit" name="qenumericedit_4">
-    <property name="geometry">
-     <rect>
-      <x>240</x>
-      <y>540</y>
-      <width>70</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="displayAlarmStateOption" stdset="0">
-     <enum>QEAbstractWidget::Never</enum>
-    </property>
-    <property name="variable" stdset="0">
-     <string>$(group):SizeY</string>
-    </property>
-    <property name="leadingZeros">
-     <number>4</number>
-    </property>
-    <property name="precision">
-     <number>0</number>
-    </property>
-    <property name="minimum">
-     <double>0.000000000000000</double>
-    </property>
-    <property name="maximum">
-     <double>9999.000000000000000</double>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_22">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>570</y>
-      <width>130</width>
-      <height>40</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Image Size</string>
-    </property>
-   </widget>
-   <widget class="QELabel" name="lblSizeX">
-    <property name="geometry">
-     <rect>
-      <x>150</x>
-      <y>570</y>
-      <width>80</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="variable" stdset="0">
-     <string>$(group):ArraySizeX_RBV</string>
-    </property>
-   </widget>
-   <widget class="QELabel" name="lblSizeY">
-    <property name="geometry">
-     <rect>
-      <x>240</x>
-      <y>570</y>
-      <width>70</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="variable" stdset="0">
-     <string>$(group):ArraySizeY_RBV</string>
-    </property>
-   </widget>
-   <widget class="QELabel" name="qelabel_9">
-    <property name="geometry">
-     <rect>
-      <x>150</x>
-      <y>590</y>
-      <width>80</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="variable" stdset="0">
-     <string>$(group):ArraySize_RBV</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_23">
-    <property name="geometry">
-     <rect>
-      <x>240</x>
-      <y>590</y>
-      <width>70</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Bytes</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_24">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>630</y>
-      <width>130</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Gain Control</string>
-    </property>
-   </widget>
-   <widget class="QENumericEdit" name="qenumericedit_5">
-    <property name="geometry">
-     <rect>
-      <x>150</x>
-      <y>630</y>
-      <width>80</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="displayAlarmStateOption" stdset="0">
-     <enum>QEAbstractWidget::Never</enum>
-    </property>
-    <property name="variable" stdset="0">
-     <string>$(group):Gain</string>
-    </property>
-    <property name="leadingZeros">
-     <number>4</number>
-    </property>
-    <property name="precision">
-     <number>2</number>
-    </property>
-    <property name="minimum">
-     <double>0.000000000000000</double>
-    </property>
-   </widget>
-   <widget class="QELabel" name="qelabel_10">
-    <property name="geometry">
-     <rect>
-      <x>240</x>
-      <y>630</y>
-      <width>70</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="variable" stdset="0">
-     <string>$(group):Gain_RBV</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_25">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>650</y>
-      <width>130</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Automatic Gain</string>
-    </property>
-   </widget>
-   <widget class="QEComboBox" name="cbTriggerMode_2">
-    <property name="geometry">
-     <rect>
-      <x>150</x>
-      <y>650</y>
-      <width>80</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="variable" stdset="0">
-     <string>$(group):GainAuto</string>
-    </property>
-   </widget>
-   <widget class="QELabel" name="qelabel_11">
-    <property name="geometry">
-     <rect>
-      <x>240</x>
-      <y>650</y>
-      <width>70</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="variable" stdset="0">
-     <string>$(group):GainAuto_RBV</string>
-    </property>
-   </widget>
-   <widget class="QELabel" name="qelabel_12">
-    <property name="geometry">
-     <rect>
-      <x>240</x>
-      <y>670</y>
-      <width>70</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="variable" stdset="0">
-     <string>$(group):PixelFormat_RBV</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_26">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>670</y>
-      <width>130</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Pixel Format</string>
-    </property>
-   </widget>
-   <widget class="QEComboBox" name="cbTriggerMode_3">
-    <property name="geometry">
-     <rect>
-      <x>150</x>
-      <y>670</y>
-      <width>80</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="variable" stdset="0">
-     <string>$(group):PixelFormat</string>
-    </property>
-   </widget>
-   <widget class="QELabel" name="qelabel_13">
-    <property name="geometry">
-     <rect>
-      <x>240</x>
-      <y>100</y>
-      <width>90</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="variable" stdset="0">
-     <string>$(group):TriggerMode_RBV</string>
-    </property>
-   </widget>
-   <widget class="QELabel" name="qelabel_14">
-    <property name="geometry">
-     <rect>
-      <x>240</x>
-      <y>120</y>
-      <width>90</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="variable" stdset="0">
-     <string>$(group):TriggerSource_RBV</string>
-    </property>
-   </widget>
-   <widget class="QENumericEdit" name="qenumericedit_6">
-    <property name="geometry">
-     <rect>
-      <x>140</x>
-      <y>180</y>
-      <width>100</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="displayAlarmStateOption" stdset="0">
-     <enum>QEAbstractWidget::Never</enum>
-    </property>
-    <property name="variable" stdset="0">
-     <string>$(group):AcquireTime</string>
-    </property>
-    <property name="leadingZeros">
-     <number>4</number>
-    </property>
-    <property name="precision">
-     <number>0</number>
-    </property>
-    <property name="minimum">
-     <double>0.000000000000000</double>
-    </property>
-   </widget>
-   <widget class="QELabel" name="qelabel_15">
-    <property name="geometry">
-     <rect>
-      <x>240</x>
-      <y>180</y>
-      <width>90</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="variable" stdset="0">
-     <string>$(group):AcquireTime_RBV</string>
-    </property>
-   </widget>
-   <widget class="QENumericEdit" name="qenumericedit_7">
-    <property name="geometry">
-     <rect>
-      <x>140</x>
-      <y>200</y>
-      <width>100</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="displayAlarmStateOption" stdset="0">
-     <enum>QEAbstractWidget::Never</enum>
-    </property>
-    <property name="variable" stdset="0">
-     <string>$(group):AcquirePeriod</string>
-    </property>
-    <property name="leadingZeros">
-     <number>4</number>
-    </property>
-    <property name="precision">
-     <number>0</number>
-    </property>
-    <property name="minimum">
-     <double>0.000000000000000</double>
-    </property>
-   </widget>
-   <widget class="QELabel" name="qelabel_17">
-    <property name="geometry">
-     <rect>
-      <x>240</x>
-      <y>200</y>
-      <width>90</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="variable" stdset="0">
-     <string>$(group):AcquirePeriod_RBV</string>
-    </property>
-   </widget>
-   <widget class="QENumericEdit" name="qenumericedit_8">
-    <property name="geometry">
-     <rect>
-      <x>140</x>
-      <y>220</y>
-      <width>100</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="displayAlarmStateOption" stdset="0">
-     <enum>QEAbstractWidget::Never</enum>
-    </property>
-    <property name="variable" stdset="0">
-     <string>$(group):FrameRate</string>
-    </property>
-    <property name="leadingZeros">
-     <number>4</number>
-    </property>
-    <property name="precision">
-     <number>0</number>
-    </property>
-    <property name="minimum">
-     <double>0.000000000000000</double>
-    </property>
-   </widget>
-   <widget class="QELabel" name="qelabel_18">
-    <property name="geometry">
-     <rect>
-      <x>240</x>
-      <y>220</y>
-      <width>90</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="variable" stdset="0">
-     <string>$(group):FrameRate_RBV</string>
-    </property>
-   </widget>
-   <widget class="QEComboBox" name="cbTriggerSource_3">
-    <property name="geometry">
-     <rect>
-      <x>140</x>
-      <y>260</y>
-      <width>100</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="variable" stdset="0">
-     <string>$(group):FrameRateEnable</string>
-    </property>
-   </widget>
-   <widget class="QELabel" name="qelabel_19">
-    <property name="geometry">
-     <rect>
-      <x>240</x>
-      <y>260</y>
-      <width>90</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="variable" stdset="0">
-     <string>$(group):FrameRateEnable_RBV</string>
-    </property>
-   </widget>
-   <widget class="QELabel" name="qelabel_20">
-    <property name="geometry">
-     <rect>
-      <x>240</x>
-      <y>280</y>
-      <width>90</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="variable" stdset="0">
-     <string>$(group):ImageMode_RBV</string>
-    </property>
-   </widget>
-   <widget class="QEComboBox" name="cbTriggerSource_4">
-    <property name="geometry">
-     <rect>
-      <x>140</x>
-      <y>280</y>
-      <width>100</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="variable" stdset="0">
-     <string>$(group):ImageMode</string>
-    </property>
-   </widget>
-   <widget class="QELabel" name="qelabel_21">
-    <property name="geometry">
-     <rect>
-      <x>140</x>
-      <y>300</y>
-      <width>100</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="variable" stdset="0">
-     <string>$(group):ArrayRate_RBV</string>
-    </property>
-   </widget>
-   <widget class="QEComboBox" name="cbTriggerSource_2">
-    <property name="geometry">
-     <rect>
-      <x>140</x>
-      <y>240</y>
-      <width>100</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="variable" stdset="0">
-     <string>$(group):ExposureAuto</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_7">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>240</y>
-      <width>130</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Auto Exposure</string>
-    </property>
-   </widget>
-   <widget class="QELabel" name="qelabel_16">
-    <property name="geometry">
-     <rect>
-      <x>240</x>
-      <y>240</y>
-      <width>90</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="variable" stdset="0">
-     <string>$(group):ExposureAuto_RBV</string>
-    </property>
-   </widget>
-   <widget class="QELabel" name="qelabel_22">
-    <property name="geometry">
-     <rect>
-      <x>150</x>
-      <y>330</y>
-      <width>91</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="variable" stdset="0">
-     <string>$(group):ARFramesCompleted</string>
-    </property>
-   </widget>
-   <widget class="QELabel" name="qelabel_23">
-    <property name="geometry">
-     <rect>
-      <x>150</x>
-      <y>350</y>
-      <width>91</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="variable" stdset="0">
-     <string>$(group):ARFrameFailures</string>
-    </property>
-   </widget>
-   <widget class="QELabel" name="qelabel_24">
-    <property name="geometry">
-     <rect>
-      <x>150</x>
-      <y>370</y>
-      <width>91</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="variable" stdset="0">
-     <string>$(group):ARFrameUnderruns</string>
-    </property>
-   </widget>
-   <widget class="QELabel" name="qelabel_25">
-    <property name="geometry">
-     <rect>
-      <x>150</x>
-      <y>390</y>
-      <width>91</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="variable" stdset="0">
-     <string>$(group):TemperatureActual</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_27">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>50</y>
-      <width>130</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Acquisition Status</string>
-    </property>
-   </widget>
-   <widget class="QELabel" name="qelabel_26">
-    <property name="geometry">
-     <rect>
-      <x>140</x>
-      <y>50</y>
-      <width>170</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="variable" stdset="0">
-     <string>$(group):AcquireBusy</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_28">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>70</y>
-      <width>130</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Camera Status</string>
-    </property>
-   </widget>
-   <widget class="QELabel" name="qelabel_27">
-    <property name="geometry">
-     <rect>
-      <x>140</x>
-      <y>70</y>
-      <width>170</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="variable" stdset="0">
-     <string>$(group):DetectorState_RBV</string>
-    </property>
-   </widget>
-   <widget class="QELabel" name="qelabel_28">
-    <property name="geometry">
-     <rect>
-      <x>250</x>
-      <y>20</y>
-      <width>60</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="variable" stdset="0">
-     <string>$(group):Acquire</string>
+     <string>Expert GUI</string>
     </property>
    </widget>
   </widget>

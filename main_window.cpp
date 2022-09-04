@@ -42,3 +42,10 @@ void main_window::onWaveformReceived(QVariant& value)
     ui->lblImage->setPixmap(QPixmap::fromImage(image));
     delete [] this->buffer;
 }
+
+void main_window::on_btnExpert_clicked()
+{
+    QProcess* p = new QProcess;
+    QFile::copy(":/cam-gui.sh", "/tmp/cam-gui.sh");
+    p->start(QString("bash /tmp/cam-gui.sh %1 %2").arg(this->prefix, "CAM"));
+}

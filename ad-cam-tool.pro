@@ -41,3 +41,6 @@ DEPENDPATH  += $$(QE_TARGET_DIR)/include
 DEPENDPATH  += $$(QWT_ROOT)/include
 DEPENDPATH += $$(EPICS_BASE)/include
 DEPENDPATH += $$(EPICS_BASE)/include/os/Linux
+
+RESOURCES += \
+    resources.qrc
