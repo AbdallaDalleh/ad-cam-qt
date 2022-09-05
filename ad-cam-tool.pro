@@ -10,12 +10,14 @@ TARGET = $$(HOME)/bin/cam-tool
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    curve_fitting.cpp \
     macros.cpp \
     main.cpp \
     main_window.cpp \
     qcustomplot.cpp
 
 HEADERS += \
+    curve_fitting.h \
     macros.h \
     main_window.h \
     qcustomplot.h
@@ -28,10 +30,11 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-unix:!macx: LIBS += -L$$(QE_TARGET_DIR)/lib/linux-x86_64/ -lQEFramework
-unix:!macx: LIBS += -L$$(QE_TARGET_DIR)/lib/linux-x86_64/designer -lQEPlugin
-unix:!macx: LIBS += -L$$(QWT_ROOT)/lib/ -lqwt
-unix:!macx: LIBS += -L$$(EPICS_BASE)/lib/linux-x86_64/ -lca -lCom
+unix:!macx: LIBS += -L$$(QE_TARGET_DIR)/lib/linux-x86_64/
+unix:!macx: LIBS += -L$$(QE_TARGET_DIR)/lib/linux-x86_64/designer
+unix:!macx: LIBS += -L$$(QWT_ROOT)/lib/
+unix:!macx: LIBS += -L$$(EPICS_BASE)/lib/linux-x86_64/
+unix:!macx: LIBS += -lca -lCom -lqwt -lQEFramework -lQEPlugin -lgsl -lgslcblas
 
 INCLUDEPATH += $$(QE_TARGET_DIR)/include
 INCLUDEPATH += $$(QWT_ROOT)/include

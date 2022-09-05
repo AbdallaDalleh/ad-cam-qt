@@ -2,6 +2,7 @@
 #include "ui_main_window.h"
 
 #include <iostream>
+#include <algorithm>
 
 using namespace std;
 
@@ -47,6 +48,7 @@ void main_window::onWaveformReceived(QVariant& value)
     this->yProfile = QVector<double>( ui->lblSizeX->text().toInt() );
     this->xProfileXAxis = QVector<double>( ui->lblSizeY->text().toInt() );
     this->yProfileXAxis = QVector<double>( ui->lblSizeX->text().toInt() );
+    double maxValueX, maxValueY;
 
     for(int i = 0; i < length; i++) {
         if(i < ui->lblSizeY->text().toInt())
@@ -75,6 +77,11 @@ void main_window::onWaveformReceived(QVariant& value)
     ui->plotProfileX->replot();
     ui->plotProfileY->replot();
 
+    maxValueX = *std::max_element(this->xProfile.constBegin(), this->xProfile.constEnd());
+    maxValueY = *std::max_element(this->yProfile.constBegin(), this->yProfile.constEnd());
+    std::vector<double> xProfileParameters = curve_fit(this->xProfileXAxis.toStdVector(), this->xProfile.toStdVector(), {1, (double) this->xProfile.indexOf(maxValueX), 18, 0});
+    std::vector<double> yProfileParameters = curve_fit(this->yProfileXAxis.toStdVector(), this->yProfile.toStdVector(), {1, (double) this->yProfile.indexOf(maxValueY), 7, 0});
+
     this->xProfile.clear();
     this->yProfile.clear();
     this->xProfile.squeeze();
@@ -91,4 +98,9 @@ void main_window::on_btnExpert_clicked()
     QProcess* p = new QProcess;
     QFile::copy(":/cam-gui.sh", "/tmp/cam-gui.sh");
     p->start(QString("bash /tmp/cam-gui.sh %1 %2").arg(this->prefix, "CAM"));
+}
+
+void main_window::performCurveFitting()
+{
+
 }

@@ -5,6 +5,7 @@
 
 #include "macros.h"
 #include "qepicspv.h"
+#include "curve_fitting.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class main_window; }
