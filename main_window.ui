@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1371</width>
+    <width>1751</width>
     <height>821</height>
    </rect>
   </property>
@@ -1335,6 +1335,52 @@ QGroupBox::title {
      <string>Expert GUI</string>
     </property>
    </widget>
+   <widget class="QCustomPlot" name="plotProfileX" native="true">
+    <property name="geometry">
+     <rect>
+      <x>1370</x>
+      <y>30</y>
+      <width>370</width>
+      <height>300</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>1370</x>
+      <y>10</y>
+      <width>210</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Horizontal Profile</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_29">
+    <property name="geometry">
+     <rect>
+      <x>1370</x>
+      <y>360</y>
+      <width>210</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Vertical Profile</string>
+    </property>
+   </widget>
+   <widget class="QCustomPlot" name="plotProfileY" native="true">
+    <property name="geometry">
+     <rect>
+      <x>1370</x>
+      <y>380</y>
+      <width>370</width>
+      <height>300</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
  </widget>
  <customwidgets>
@@ -1357,6 +1403,12 @@ QGroupBox::title {
    <class>QEPushButton</class>
    <extends>QPushButton</extends>
    <header>QEPushButton.h</header>
+  </customwidget>
+  <customwidget>
+   <class>QCustomPlot</class>
+   <extends>QWidget</extends>
+   <header>qcustomplot.h</header>
+   <container>1</container>
   </customwidget>
  </customwidgets>
  <resources/>

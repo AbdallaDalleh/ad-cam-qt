@@ -1,4 +1,4 @@
-QT       += core gui uitools xml
+QT       += core gui uitools xml printsupport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -12,11 +12,13 @@ TARGET = $$(HOME)/bin/cam-tool
 SOURCES += \
     macros.cpp \
     main.cpp \
-    main_window.cpp
+    main_window.cpp \
+    qcustomplot.cpp
 
 HEADERS += \
     macros.h \
-    main_window.h
+    main_window.h \
+    qcustomplot.h
 
 FORMS += \
     main_window.ui

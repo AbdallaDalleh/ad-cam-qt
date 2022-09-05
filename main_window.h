@@ -29,6 +29,12 @@ private:
     QString group;
     QString prefix;
     uchar* buffer;
+    QVector<double> xProfile;
+    QVector<double> yProfile;
+    QVector<double> xProfileXAxis;
+    QVector<double> yProfileXAxis;
+    int sum;
+    int rawValue;
 
     QEpicsPV* waveform;
 };

@@ -2,7 +2,6 @@
 #include "ui_main_window.h"
 
 #include <iostream>
-#include <QThread>
 
 using namespace std;
 
@@ -22,6 +21,16 @@ main_window::main_window(QWidget *parent)
 
     this->waveform = new QEpicsPV(this->prefix + ":image1:ArrayData");
     QObject::connect(this->waveform, SIGNAL(valueUpdated(QVariant&)), this, SLOT(onWaveformReceived(QVariant&)));
+
+    sum = 0;
+    rawValue = 0;
+
+    ui->plotProfileX->addGraph();
+    ui->plotProfileX->xAxis->setLabel("Samples");
+    ui->plotProfileX->yAxis->setLabel("Profile");
+    ui->plotProfileY->addGraph();
+    ui->plotProfileY->xAxis->setLabel("Samples");
+    ui->plotProfileY->yAxis->setLabel("Profile");
 }
 
 main_window::~main_window()
@@ -34,12 +43,46 @@ void main_window::onWaveformReceived(QVariant& value)
     QStringList rawData = value.toStringList();
     int length = ui->lblSizeX->text().toInt() * ui->lblSizeY->text().toInt();
     this->buffer = new uchar[length];
+    this->xProfile = QVector<double>( ui->lblSizeY->text().toInt() );
+    this->yProfile = QVector<double>( ui->lblSizeX->text().toInt() );
+    this->xProfileXAxis = QVector<double>( ui->lblSizeY->text().toInt() );
+    this->yProfileXAxis = QVector<double>( ui->lblSizeX->text().toInt() );
 
-    for(int i = 0; i < length; i++)
-        this->buffer[i] = static_cast<unsigned char>(rawData[i].toInt());
+    for(int i = 0; i < length; i++) {
+        if(i < ui->lblSizeY->text().toInt())
+            this->xProfileXAxis[i] = i;
+        if(i < ui->lblSizeX->text().toInt())
+            this->yProfileXAxis[i] = i;
+
+        rawValue = rawData[i].toInt();
+        this->buffer[i] = static_cast<unsigned char>(rawValue);
+        this->yProfile[i % ui->lblSizeX->text().toInt()] += rawValue;
+
+        if(i > 0 && i % ui->lblSizeX->text().toInt() == 0) {
+            xProfile[i / ui->lblSizeX->text().toInt() - 1] = sum;
+            sum = 0;
+        }
+        sum += rawData[i].toInt();
+    }
 
     QImage image(this->buffer, ui->lblSizeX->text().toInt(), ui->lblSizeY->text().toInt(), QImage::Format_Grayscale8);
     ui->lblImage->setPixmap(QPixmap::fromImage(image));
+
+    ui->plotProfileX->graph(0)->setData(this->xProfileXAxis, this->xProfile);
+    ui->plotProfileY->graph(0)->setData(this->yProfileXAxis, this->yProfile);
+    ui->plotProfileX->rescaleAxes();
+    ui->plotProfileY->rescaleAxes();
+    ui->plotProfileX->replot();
+    ui->plotProfileY->replot();
+
+    this->xProfile.clear();
+    this->yProfile.clear();
+    this->xProfile.squeeze();
+    this->yProfile.squeeze();
+    this->xProfileXAxis.clear();
+    this->yProfileXAxis.clear();
+    this->xProfileXAxis.squeeze();
+    this->yProfileXAxis.squeeze();
     delete [] this->buffer;
 }
 
