@@ -2,6 +2,7 @@
 #define MAIN_WINDOW_H
 
 #include <QMainWindow>
+#include <QCloseEvent>
 
 #include "macros.h"
 #include "qepicspv.h"
@@ -23,6 +24,8 @@ private slots:
     void onWaveformReceived(QVariant& value);
 
     void on_btnExpert_clicked();
+
+    void closeEvent(QCloseEvent* event);
 
 private:
     Ui::main_window *ui;

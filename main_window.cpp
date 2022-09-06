@@ -115,3 +115,9 @@ void main_window::on_btnExpert_clicked()
     QFile::copy(":/cam-gui.sh", "/tmp/cam-gui.sh");
     p->start(QString("bash /tmp/cam-gui.sh %1 %2").arg(this->prefix, "CAM"));
 }
+
+void main_window::closeEvent(QCloseEvent *event)
+{
+    emit ui->btnStop->click();
+    QMainWindow::closeEvent(event);
+}
