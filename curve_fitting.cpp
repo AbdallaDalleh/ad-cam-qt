@@ -1,4 +1,3 @@
-
 #include "curve_fitting.h"
 
 std::vector<double> curve_fit(std::vector<double> t, std::vector<double> y, std::vector<double> initial_parameters)
@@ -176,7 +175,7 @@ void solve_system(gsl_vector* x, gsl_multifit_nlinear_fdf* fdf, gsl_multifit_nli
     gsl_blas_ddot(f, f, &chisq0);
 
     /* iterate until convergence */
-    gsl_multifit_nlinear_driver(max_iter, xtol, gtol, ftol, callback, NULL, &info, work);
+    gsl_multifit_nlinear_driver(max_iter, xtol, gtol, ftol, NULL, NULL, &info, work);
 
     /* store final cost */
     gsl_blas_ddot(f, f, &chisq);
@@ -187,16 +186,14 @@ void solve_system(gsl_vector* x, gsl_multifit_nlinear_fdf* fdf, gsl_multifit_nli
     gsl_vector_memcpy(x, y);
 
     /* print summary */
-
-    fprintf(stderr, "NITER         = %zu\n", gsl_multifit_nlinear_niter(work));
-    fprintf(stderr, "NFEV          = %zu\n", fdf->nevalf);
-    fprintf(stderr, "NJEV          = %zu\n", fdf->nevaldf);
-    fprintf(stderr, "NAEV          = %zu\n", fdf->nevalfvv);
-    fprintf(stderr, "initial cost  = %.12e\n", chisq0);
-    fprintf(stderr, "final cost    = %.12e\n", chisq);
-    fprintf(stderr, "final x       = (%.12e, %.12e, %12e)\n",
-            gsl_vector_get(x, 0), gsl_vector_get(x, 1), gsl_vector_get(x, 2));
-    fprintf(stderr, "final cond(J) = %.12e\n", 1.0 / rcond);
+    // fprintf(stderr, "NITER         = %zu\n", gsl_multifit_nlinear_niter(work));
+    // fprintf(stderr, "NFEV          = %zu\n", fdf->nevalf);
+    // fprintf(stderr, "NJEV          = %zu\n", fdf->nevaldf);
+    // fprintf(stderr, "NAEV          = %zu\n", fdf->nevalfvv);
+    // fprintf(stderr, "initial cost  = %.12e\n", chisq0);
+    // fprintf(stderr, "final cost    = %.12e\n", chisq);
+    // fprintf(stderr, "final x       = (%.12e, %.12e, %12e)\n", gsl_vector_get(x, 0), gsl_vector_get(x, 1), gsl_vector_get(x, 2));
+    // fprintf(stderr, "final cond(J) = %.12e\n", 1.0 / rcond);
 
     gsl_multifit_nlinear_free(work);
 }

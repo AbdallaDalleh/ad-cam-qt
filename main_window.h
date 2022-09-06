@@ -34,6 +34,8 @@ private:
     QVector<double> yProfile;
     QVector<double> xProfileXAxis;
     QVector<double> yProfileXAxis;
+    QVector<double> xProfileFit;
+    QVector<double> yProfileFit;
     int sum;
     int rawValue;
 

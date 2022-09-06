@@ -27,11 +27,16 @@ main_window::main_window(QWidget *parent)
     rawValue = 0;
 
     ui->plotProfileX->addGraph();
-    ui->plotProfileX->xAxis->setLabel("Samples");
-    ui->plotProfileX->yAxis->setLabel("Profile");
+    ui->plotProfileX->addGraph();
+    ui->plotProfileX->graph(1)->setPen(QPen(QColor(Qt::red)));
+    ui->plotProfileX->graph(1)->setValueAxis(ui->plotProfileX->yAxis2);
+
     ui->plotProfileY->addGraph();
-    ui->plotProfileY->xAxis->setLabel("Samples");
-    ui->plotProfileY->yAxis->setLabel("Profile");
+    ui->plotProfileY->addGraph();
+    ui->plotProfileY->graph(1)->setPen(QPen(QColor(Qt::red)));
+    ui->plotProfileY->graph(1)->setValueAxis(ui->plotProfileY->yAxis2);
+
+    QObject::connect(this, SIGNAL(close()), this->ui->btnStop, SLOT(clicked()));
 }
 
 main_window::~main_window()
@@ -49,8 +54,9 @@ void main_window::onWaveformReceived(QVariant& value)
     this->xProfileXAxis = QVector<double>( ui->lblSizeY->text().toInt() );
     this->yProfileXAxis = QVector<double>( ui->lblSizeX->text().toInt() );
     double maxValueX, maxValueY;
+    int i;
 
-    for(int i = 0; i < length; i++) {
+    for(i = 0; i < length; i++) {
         if(i < ui->lblSizeY->text().toInt())
             this->xProfileXAxis[i] = i;
         if(i < ui->lblSizeX->text().toInt())
@@ -70,17 +76,27 @@ void main_window::onWaveformReceived(QVariant& value)
     QImage image(this->buffer, ui->lblSizeX->text().toInt(), ui->lblSizeY->text().toInt(), QImage::Format_Grayscale8);
     ui->lblImage->setPixmap(QPixmap::fromImage(image));
 
-    ui->plotProfileX->graph(0)->setData(this->xProfileXAxis, this->xProfile);
-    ui->plotProfileY->graph(0)->setData(this->yProfileXAxis, this->yProfile);
-    ui->plotProfileX->rescaleAxes();
-    ui->plotProfileY->rescaleAxes();
-    ui->plotProfileX->replot();
-    ui->plotProfileY->replot();
-
     maxValueX = *std::max_element(this->xProfile.constBegin(), this->xProfile.constEnd());
     maxValueY = *std::max_element(this->yProfile.constBegin(), this->yProfile.constEnd());
     std::vector<double> xProfileParameters = curve_fit(this->xProfileXAxis.toStdVector(), this->xProfile.toStdVector(), {1, (double) this->xProfile.indexOf(maxValueX), 18, 0});
     std::vector<double> yProfileParameters = curve_fit(this->yProfileXAxis.toStdVector(), this->yProfile.toStdVector(), {1, (double) this->yProfile.indexOf(maxValueY), 7, 0});
+
+    for(i = 0; i < this->xProfile.size(); i++) {
+        this->xProfileFit.push_back(gaussian(xProfileParameters[0], xProfileParameters[1], xProfileParameters[2], xProfileParameters[3], i));
+    }
+    for(i = 0; i < this->yProfile.size(); i++) {
+        this->yProfileFit.push_back(gaussian(yProfileParameters[0], yProfileParameters[1], yProfileParameters[2], yProfileParameters[3], i));
+    }
+
+    ui->plotProfileX->graph(0)->setData(this->xProfileXAxis, this->xProfile);
+    ui->plotProfileX->graph(1)->setData(this->xProfileXAxis, this->xProfileFit);
+    ui->plotProfileX->rescaleAxes();
+    ui->plotProfileX->replot();
+
+    ui->plotProfileY->graph(0)->setData(this->yProfileXAxis, this->yProfile);
+    ui->plotProfileY->graph(1)->setData(this->yProfileXAxis, this->yProfileFit);
+    ui->plotProfileY->rescaleAxes();
+    ui->plotProfileY->replot();
 
     this->xProfile.clear();
     this->yProfile.clear();
