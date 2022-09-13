@@ -46,6 +46,8 @@ main_window::~main_window()
 
 void main_window::onWaveformReceived(QVariant& value)
 {
+    if(ui->lblAcquireStatus->text() != "Acquiring")
+        return;
     QStringList rawData = value.toStringList();
     int length = ui->lblSizeX->text().toInt() * ui->lblSizeY->text().toInt();
     this->buffer = new uchar[length];
@@ -118,6 +120,6 @@ void main_window::on_btnExpert_clicked()
 
 void main_window::closeEvent(QCloseEvent *event)
 {
-    emit ui->btnStop->click();
+    ui->btnStop->click();
     QMainWindow::closeEvent(event);
 }

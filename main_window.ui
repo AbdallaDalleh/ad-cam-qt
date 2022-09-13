@@ -132,7 +132,7 @@ QGroupBox::title {
       <string>$(group):DetectorState_RBV</string>
      </property>
     </widget>
-    <widget class="QELabel" name="qelabel_26">
+    <widget class="QELabel" name="lblAcquireStatus">
      <property name="geometry">
       <rect>
        <x>140</x>
