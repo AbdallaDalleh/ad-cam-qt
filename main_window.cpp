@@ -6,12 +6,12 @@
 
 using namespace std;
 
-main_window::main_window(QWidget *parent)
+main_window::main_window(QString prefix, QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::main_window)
 {
     ui->setupUi(this);
-    this->prefix = "SRC06-DI-IAXD";
+    this->prefix = prefix;
     this->group = this->prefix + ":CAM";
     setWindowTitle(this->prefix);
 
