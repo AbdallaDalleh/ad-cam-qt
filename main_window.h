@@ -8,6 +8,10 @@
 #include "qepicspv.h"
 #include "curve_fitting.h"
 
+#define R_DISTANCE (2176.8 / 1000.0)
+#define PH_DIVERGE (31.00 / 1000000)
+#define EL_DIVERGE (8.25 / 1000000)
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class main_window; }
 QT_END_NAMESPACE

@@ -46,8 +46,6 @@ main_window::~main_window()
 
 void main_window::onWaveformReceived(QVariant& value)
 {
-    if(ui->lblAcquireStatus->text() != "Acquiring")
-        return;
     QStringList rawData = value.toStringList();
     int length = ui->lblSizeX->text().toInt() * ui->lblSizeY->text().toInt();
     this->buffer = new uchar[length];
@@ -77,6 +75,9 @@ void main_window::onWaveformReceived(QVariant& value)
 
     QImage image(this->buffer, ui->lblSizeX->text().toInt(), ui->lblSizeY->text().toInt(), QImage::Format_Grayscale8);
     ui->lblImage->setPixmap(QPixmap::fromImage(image));
+
+    if(!ui->cbEnableFitting->isChecked())
+        return;
 
     maxValueX = *std::max_element(this->xProfile.constBegin(), this->xProfile.constEnd());
     maxValueY = *std::max_element(this->yProfile.constBegin(), this->yProfile.constEnd());
@@ -109,6 +110,14 @@ void main_window::onWaveformReceived(QVariant& value)
     this->xProfileXAxis.squeeze();
     this->yProfileXAxis.squeeze();
     delete [] this->buffer;
+
+    double sigma_y = qSqrt(qFabs(yProfileParameters[2] / 2.0)) * 35.211 / 1E6;
+    double beam_size_y = qSqrt( sigma_y * sigma_y - R_DISTANCE * R_DISTANCE * ( PH_DIVERGE * PH_DIVERGE + EL_DIVERGE * EL_DIVERGE ) );
+    ui->lblVSize->setText(QString::number(beam_size_y));
+    ui->lblFitA->setText(QString::number(yProfileParameters[0]));
+    ui->lblFitB->setText(QString::number(yProfileParameters[1]));
+    ui->lblFitC->setText(QString::number(yProfileParameters[2]));
+    ui->lblFitD->setText(QString::number(yProfileParameters[3]));
 }
 
 void main_window::on_btnExpert_clicked()
