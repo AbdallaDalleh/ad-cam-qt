@@ -10,14 +10,14 @@ TARGET = $$(HOME)/bin/cam-tool
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    curve_fitting.cpp \
+    # curve_fitting.cpp \
     macros.cpp \
     main.cpp \
     main_window.cpp \
     qcustomplot.cpp
 
 HEADERS += \
-    curve_fitting.h \
+    # curve_fitting.h \
     macros.h \
     main_window.h \
     qcustomplot.h

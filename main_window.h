@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QCloseEvent>
+#include <qcustomplot.h>
 
 #include "macros.h"
 #include "qepicspv.h"
@@ -45,6 +46,8 @@ private:
     QVector<double> yProfileFit;
     int sum;
     int rawValue;
+
+    QCPColorMap* map;
 
     QEpicsPV* waveform;
 };

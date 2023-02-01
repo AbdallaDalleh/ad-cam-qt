@@ -9,7 +9,7 @@ int main(int argc, char *argv[])
     if(argv[1])
         prefix = QString(argv[1]);
     else
-        prefix = "SRC06-DI-IAXD";
+        prefix = "SRC16-DI-PNHL";
     main_window w(prefix);
     w.show();
     return a.exec();
